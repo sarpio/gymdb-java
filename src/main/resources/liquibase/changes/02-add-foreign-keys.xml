@@ -1,0 +1,35 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="pb" id="add-foreign-keys">
+        <addForeignKeyConstraint baseTableName="card"
+                                 baseColumnNames="client_id"
+                                 constraintName="fk_card_client_id"
+                                 referencedTableName="client"
+                                 referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="card"
+                                 baseColumnNames="card_type_id"
+                                 constraintName="fk_card_card_type_id"
+                                 referencedTableName="cardType"
+                                 referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="employee"
+                                 baseColumnNames="gym_id"
+                                 constraintName="fk_employee_gym_id"
+                                 referencedTableName="gym"
+                                 referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="gymCardType"
+                                 baseColumnNames="gym_id"
+                                 constraintName="fk_gym_card_type_gym_id"
+                                 referencedTableName="gym"
+                                 referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="gymCardType"
+                                 baseColumnNames="card_type_id"
+                                 constraintName="fk_gym_card_type_card_type_id"
+                                 referencedTableName="cardType"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>
